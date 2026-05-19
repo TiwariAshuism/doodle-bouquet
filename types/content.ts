@@ -13,16 +13,6 @@ export type LoveNote = {
   accentClass: string;
 };
 
-export type TimelineEvent = {
-  id: string;
-  title: string;
-  description: string;
-  period: string;
-  accentClass: string;
-  dotClass: string;
-  side: "left" | "right";
-};
-
 export type BentoItem = {
   id: string;
   title: string;

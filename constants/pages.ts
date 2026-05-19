@@ -3,9 +3,7 @@ export const ROUTES = {
   story: "/#story",
   gallery: "/gallery",
   notes: "/#notes",
-  timeline: "/#timeline",
   magic: "/#magic",
-  send: "/send",
   privacy: "/privacy",
   terms: "/terms",
   contact: "/contact",
@@ -73,20 +71,12 @@ export const GALLERY_ITEMS = [
   },
 ] as const;
 
-export const SEND_FORM_COPY = {
-  title: "Send a Bouquet",
-  description:
-    "Write the words your heart has been holding. I will wrap them in glowing petals and send them across the dark like lanterns — private, sincere, and only for the one you love.",
-  successMessage:
-    "Your bouquet is on its way — drifting through the quiet like light on water, gentle and unmistakably yours.",
-} as const;
-
 export const PRIVACY_CONTENT = {
   title: "Privacy Policy",
   sections: [
     {
       heading: "What we cherish",
-      body: "Doodle Bouquet collects only what you choose to share when sending a bouquet or leaving a note. We treat your words like pressed flowers — handled with care, never sold, never turned into something colder than love.",
+      body: "Doodle Bouquet collects only what you choose to share when you reach out or leave a note. We treat your words like pressed flowers — handled with care, never sold, never turned into something colder than love.",
     },
     {
       heading: "How we protect you",
@@ -94,7 +84,7 @@ export const PRIVACY_CONTENT = {
     },
     {
       heading: "Your choices",
-      body: "You may request deletion of any bouquet or note at any time. Reach out through Contact Heart and we will answer with warmth, respect, and speed.",
+      body: "You may request deletion of any message at any time. Reach out through Contact Heart and we will answer with warmth, respect, and speed.",
     },
   ],
 } as const;
@@ -104,7 +94,7 @@ export const TERMS_CONTENT = {
   sections: [
     {
       heading: "Kindness first",
-      body: "By using Doodle Bouquet, you agree to send only messages rooted in respect, consent, and genuine affection. Love should feel safe — always.",
+      body: "By using Doodle Bouquet, you agree to interact with kindness — only messages rooted in respect, consent, and genuine affection. Love should feel safe — always.",
     },
     {
       heading: "Creative spirit",
@@ -112,7 +102,7 @@ export const TERMS_CONTENT = {
     },
     {
       heading: "Eternal disclaimer",
-      body: "We cannot guarantee that every bouquet will make someone cry happy tears — only that we will keep the experience beautiful, sincere, and worthy of the love you are trying to express.",
+      body: "We cannot guarantee happy tears every visit — only that we will keep this space beautiful, sincere, and worthy of the love you carry.",
     },
   ],
 } as const;

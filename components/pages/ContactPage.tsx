@@ -29,10 +29,10 @@ export function ContactPage() {
             We read every note within a day — usually with tea and a smile.
           </p>
           <Link
-            href={ROUTES.send}
+            href={ROUTES.notes}
             className="inline-block rounded-full border border-secondary-fixed/30 px-8 py-3 font-label-md uppercase tracking-widest text-secondary-fixed transition-colors hover:bg-secondary-fixed/10"
           >
-            Send a bouquet instead
+            Read love notes
           </Link>
         </GlassCard>
       </Reveal>

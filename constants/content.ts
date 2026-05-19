@@ -12,7 +12,7 @@ import {
   Feather,
 } from "lucide-react";
 import { ROUTES } from "@/constants/pages";
-import type { BentoItem, LoveNote, NavLink, TimelineEvent } from "@/types/content";
+import type { BentoItem, LoveNote, NavLink } from "@/types/content";
 
 export const SITE = {
   name: "Doodle Bouquet",
@@ -29,7 +29,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: ROUTES.story, label: "Our Story" },
   { href: ROUTES.gallery, label: "Gallery" },
   { href: ROUTES.notes, label: "Love Notes" },
-  { href: ROUTES.timeline, label: "Timeline" },
+  { href: ROUTES.magic, label: "Why You" },
 ];
 
 export const LOVE_NOTES: LoveNote[] = [
@@ -96,59 +96,6 @@ export const LOVE_NOTES: LoveNote[] = [
     attribution: "— the promise behind every doodle I make",
     icon: CloudLightning,
     accentClass: "text-tertiary",
-  },
-];
-
-export const TIMELINE_EVENTS: TimelineEvent[] = [
-  {
-    id: "spark",
-    title: "The Spark",
-    description:
-      'Everything shifted with a simple hello — the kind that sounds small but rearranges the furniture in your soul.',
-    period: "When the world first felt different",
-    accentClass: "text-primary",
-    dotClass: "bg-primary-container shadow-[0_0_20px_rgba(255,127,80,0.5)]",
-    side: "left",
-  },
-  {
-    id: "roots",
-    title: "Deep Roots",
-    description:
-      "Midnight conversations, shared dreams, and laughter that stitched us together under soft neon light.",
-    period: "When trust learned our names",
-    accentClass: "text-secondary-fixed",
-    dotClass: "bg-secondary-fixed shadow-[0_0_15px_rgba(0,251,251,0.5)]",
-    side: "right",
-  },
-  {
-    id: "bloom",
-    title: "In Bloom",
-    description:
-      "I realized home is not a place on a map — it is the warmth in your voice when you say my name.",
-    period: "When belonging stopped searching",
-    accentClass: "text-tertiary",
-    dotClass: "bg-tertiary shadow-[0_0_15px_rgba(210,187,255,0.5)]",
-    side: "left",
-  },
-  {
-    id: "devotion",
-    title: "Soft Devotion",
-    description:
-      "We learned the art of staying — not because it was easy, but because choosing each other felt like breathing.",
-    period: "When love became a daily ritual",
-    accentClass: "text-primary",
-    dotClass: "bg-primary-container shadow-[0_0_20px_rgba(255,127,80,0.5)]",
-    side: "right",
-  },
-  {
-    id: "forever",
-    title: "Still Choosing You",
-    description:
-      "Every tomorrow is another page I want to write beside you — messy, glowing, and beautifully ours.",
-    period: "When forever stopped feeling far away",
-    accentClass: "text-secondary-fixed",
-    dotClass: "bg-secondary-fixed shadow-[0_0_15px_rgba(0,251,251,0.5)]",
-    side: "left",
   },
 ];
 

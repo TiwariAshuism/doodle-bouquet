@@ -78,10 +78,10 @@ export function CtaSection() {
             transition={{ duration: 2, repeat: Infinity }}
           >
             <Link
-              href={ROUTES.send}
+              href={ROUTES.notes}
               className="inline-block rounded-full bg-primary-container px-12 py-5 font-label-md uppercase tracking-[0.2em] text-on-primary-container"
             >
-              Send Your Love
+              {SECTION_COPY.cta.button}
             </Link>
           </motion.div>
         </Magnetic>

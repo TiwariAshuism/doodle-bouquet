@@ -60,10 +60,10 @@ export function GalleryGrid() {
         <Magnetic>
           <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }}>
             <Link
-              href={ROUTES.send}
+              href={ROUTES.notes}
               className="inline-block rounded-full bg-primary-container px-10 py-4 font-label-md uppercase tracking-widest text-on-primary-container shadow-[0_0_20px_rgba(255,127,80,0.4)]"
             >
-              Create Your Bouquet
+              Read Love Notes
             </Link>
           </motion.div>
         </Magnetic>

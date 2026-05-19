@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { Heart, Menu, X } from "lucide-react";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { NAV_LINKS, SITE } from "@/constants/content";
 import { ROUTES } from "@/constants/pages";
 import { navItemVariants } from "@/lib/animations";
@@ -15,6 +17,7 @@ function isLinkActive(pathname: string, href: string) {
 
 export function TopNav() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const navBg = useTransform(
     scrollY,
@@ -30,30 +33,35 @@ export function TopNav() {
     ],
   );
 
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
   return (
     <motion.nav
       style={{ backgroundColor: navBg, boxShadow: navShadow }}
-      className="fixed top-0 z-50 flex h-20 w-full items-center border-b border-white/20 backdrop-blur-[40px]"
+      className="fixed top-0 z-50 flex h-20 w-full flex-col border-b border-white/20 backdrop-blur-[40px]"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
     >
-      <motion.div
-        className="mx-auto flex h-full w-full max-w-(--spacing-container-max) items-center justify-between px-5 md:px-(--spacing-margin-desktop)"
-        variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div custom={0} variants={navItemVariants}>
+      <div className="mx-auto flex h-20 w-full max-w-(--spacing-container-max) items-center justify-between gap-4 px-5 md:px-(--spacing-margin-desktop)">
+        <motion.div custom={0} variants={navItemVariants} initial="hidden" animate="visible">
           <Link
             href={ROUTES.home}
             className="font-headline-md text-primary drop-shadow-[0_0_15px_rgba(255,127,80,0.3)]"
+            onClick={closeMenu}
           >
             {SITE.name}
           </Link>
         </motion.div>
 
-        <motion.div className="hidden items-center gap-12 md:flex">
+        <motion.div
+          className="hidden items-center gap-12 md:flex"
+          variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+          initial="hidden"
+          animate="visible"
+        >
           {NAV_LINKS.map((link, i) => {
             const active = isLinkActive(pathname, link.href);
             return (
@@ -82,21 +90,74 @@ export function TopNav() {
           })}
         </motion.div>
 
-        <motion.div custom={4} variants={navItemVariants}>
-          <Link
-            href={ROUTES.send}
-            className="rounded-full bg-primary-container px-6 py-2 font-label-md uppercase tracking-wider text-on-primary-container transition-opacity hover:opacity-90"
-          >
-            <motion.span
-              className="block"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+        <div className="flex items-center gap-3">
+          <motion.div custom={4} variants={navItemVariants} initial="hidden" animate="visible">
+            <Link
+              href={ROUTES.notes}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary-container px-4 py-2 font-label-md uppercase tracking-wider text-on-primary-container transition-opacity hover:opacity-90 sm:px-6"
+              onClick={closeMenu}
             >
-              Send Bouquet
-            </motion.span>
-          </Link>
-        </motion.div>
-      </motion.div>
+              <Heart
+                className="size-4 shrink-0 fill-current stroke-[1.5]"
+                aria-hidden
+              />
+              <span>Love Notes</span>
+            </Link>
+          </motion.div>
+
+          <motion.button
+            type="button"
+            custom={5}
+            variants={navItemVariants}
+            initial="hidden"
+            animate="visible"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-on-surface md:hidden"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? (
+              <X className="size-5 shrink-0" strokeWidth={2} />
+            ) : (
+              <Menu className="size-5 shrink-0" strokeWidth={2} />
+            )}
+          </motion.button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {menuOpen ? (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-white/10 bg-surface-container/95 md:hidden"
+          >
+            <ul className="flex flex-col gap-1 px-5 py-4">
+              {NAV_LINKS.map((link) => {
+                const active = isLinkActive(pathname, link.href);
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={closeMenu}
+                      className={cn(
+                        "block rounded-xl px-4 py-3 font-label-md uppercase tracking-widest transition-colors",
+                        active
+                          ? "bg-primary/15 text-primary"
+                          : "text-on-surface-variant hover:bg-white/5 hover:text-primary",
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </motion.nav>
   );
 }

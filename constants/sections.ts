@@ -2,18 +2,13 @@ export const SECTION_COPY = {
   story: {
     eyebrow: "Our Story",
     intro:
-      "Not a timeline of dates — only the feeling of how we found each other, again and again.",
+      "Not a calendar of days — only the feeling of how we found each other, again and again.",
   },
   notes: {
     eyebrow: "Love Notes",
     title: "Whispers of the Heart",
     description:
       "Little lines I would leave on your pillow if words could glow. Read them slowly — they were written with you in mind.",
-  },
-  timeline: {
-    title: "Our Journey",
-    description:
-      "Every chapter of us, without counting the days. Only the moments that still make my chest feel full.",
   },
   magic: {
     title: "Why You Are Magic",
@@ -24,6 +19,7 @@ export const SECTION_COPY = {
     title: "Among billions of stars,",
     titleLine2: "my heart chose you.",
     subtitle:
-      "Send a bouquet of words when your heart is too full to hold them alone. I will meet you there, in the glow.",
+      "Stay a while — read the notes, wander the gallery, and let the glow remind you how deeply you are loved.",
+    button: "Read Love Notes",
   },
 } as const;

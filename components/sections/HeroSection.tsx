@@ -139,7 +139,7 @@ export function HeroSection() {
         >
           <motion.div variants={staggerItem}>
             <Magnetic>
-              <PrimaryButton href={ROUTES.send}>Create Yours</PrimaryButton>
+              <PrimaryButton href={ROUTES.notes}>Read Love Notes</PrimaryButton>
             </Magnetic>
           </motion.div>
           <motion.div variants={staggerItem}>
